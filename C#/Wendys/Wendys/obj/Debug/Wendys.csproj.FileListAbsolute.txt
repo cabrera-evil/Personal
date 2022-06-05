@@ -1,0 +1,13 @@
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\bin\Debug\Wendys.exe.config
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\bin\Debug\Wendys.exe
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\bin\Debug\Wendys.pdb
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.csproj.AssemblyReference.cache
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.csproj.SuggestedBindingRedirects.cache
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.Properties.Resources.resources
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.csproj.GenerateResource.cache
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.csproj.CoreCompileInputs.cache
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.exe
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.pdb
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.Promociones.resources
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.Combos.resources
+C:\Users\Douglas\git\Personal\C#\Wendys\Wendys\obj\Debug\Wendys.Pagar.resources
