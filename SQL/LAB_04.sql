@@ -9,7 +9,8 @@
 -- Creando base de datos y seleccionandola para realizar consultas 
 CREATE DATABASE Airport_Management;
 GO	-- Omitir si se esta utilizando https://sqliteonline.com/
-USE Airport_Management; 				-- Omitir si se esta utilizando https://sqliteonline.com/
+USE Airport_Management; 
+GO				-- Omitir si se esta utilizando https://sqliteonline.com/
 SET LANGUAGE us_english;
 GO
 

@@ -5,6 +5,12 @@ extra que incluyan los clientes en las reservas. Restricción : El ejercicio deb
 utilizar la sentencia INTO, tablas temporales o bloques de programación (bloques anónimos, funciones o procedimientos almacenados). 
 Resultado esperado:*/
 
+SELECT P.id, P.nombre, R.
+FROM PASAJERO P
+INNER JOIN RESERVA R
+    ON R.id_pasajero = P.id
+
+
 /*Ejercicio 2. Cada reserva tiene una fecha en la que fue realizada, una solicitud del departamento de finanzas del consorcio requiere 
 la ganancia del mes de abril de 2021, pero los datos deben estar organizados por días. Como parte de la solicitud, se requiere que la fecha 
 sea mostrada en un formato especial (ver imagen de vista esperada). Para calcular el valor de una reserva se debe tomar en cuenta tanto el precio 
