@@ -92,4 +92,38 @@ como el consorcio líder a nivel nacional, para verificar la viabilidad del proy
 un reporte especial que consiste en mostrar las ganancias del mes de mayo de 2022 pero
 organizadas en base a 4 grupos de fechas.*/
 
+SELECT  
+        CASE WHEN C.fecha BETWEEN '20220501 00:00' AND '20220508 23:59' THEN 'Semana 1'
+            WHEN C.fecha BETWEEN '20220509 00:00' AND '20220515 23:59' THEN 'Semana 2'
+            WHEN C.fecha BETWEEN '20220516 00:00' AND '20220522 23:59' THEN 'Semana 3'
+            WHEN C.fecha BETWEEN '20220523 00:00' AND '20220531 23:59' THEN 'Semana 4' END AS 'semana',
+                
+        ROUND((SUM(CASE WHEN C.fecha BETWEEN '20220501 00:00' AND '20220508 23:59' THEN C.precio
+                        WHEN C.fecha BETWEEN '20220509 00:00' AND '20220515 23:59' THEN C.precio
+                        WHEN C.fecha BETWEEN '20220516 00:00' AND '20220522 23:59' THEN C.precio
+                        WHEN C.fecha BETWEEN '20220523 00:00' AND '20220531 23:59' THEN C.precio END)+MED.[MEDIC PRECIO])+0.13,2) 'GANANCIA'
 
+FROM(
+    SELECT CASE WHEN C.fecha BETWEEN '20220501 00:00' AND '20220508 23:59' THEN 'Semana 1'
+                WHEN C.fecha BETWEEN '20220509 00:00' AND '20220515 23:59' THEN 'Semana 2'
+                WHEN C.fecha BETWEEN '20220516 00:00' AND '20220522 23:59' THEN 'Semana 3'
+                WHEN C.fecha BETWEEN '20220523 00:00' AND '20220531 23:59' THEN 'Semana 4' END AS SEMANA,
+                SUM (M.precio) 'MEDIC PRECIO'
+    FROM CONSULTA C, MEDICAMENTO M, RECETA R
+    WHERE C.id = R.id_consulta AND M.id = R.id_medicamento
+    GROUP BY CASE 
+                WHEN C.fecha BETWEEN '20220501 00:00' AND '20220508 23:59' THEN 'Semana 1'
+                WHEN C.fecha BETWEEN '20220509 00:00' AND '20220515 23:59' THEN 'Semana 2'
+                WHEN C.fecha BETWEEN '20220516 00:00' AND '20220522 23:59' THEN 'Semana 3'
+                WHEN C.fecha BETWEEN '20220523 00:00' AND '20220531 23:59' THEN 'Semana 4' END
+    ) MED, CONSULTA C
+
+WHERE MED.SEMANA LIKE CASE WHEN C.fecha BETWEEN '20220501 00:00' AND '20220508 23:59' THEN 'Semana 1'
+                            WHEN C.fecha BETWEEN '20220509 00:00' AND '20220515 23:59' THEN 'Semana 2'
+                            WHEN C.fecha BETWEEN '20220516 00:00' AND '20220522 23:59' THEN 'Semana 3'
+                            WHEN C.fecha BETWEEN '20220523 00:00' AND '20220531 23:59' THEN 'Semana 4' END 
+                            
+GROUP BY MED.[MEDIC PRECIO],CASE WHEN C.fecha BETWEEN '20220501 00:00' AND '20220508 23:59' THEN 'Semana 1'
+                                WHEN C.fecha BETWEEN '20220509 00:00' AND '20220515 23:59' THEN 'Semana 2'
+                                WHEN C.fecha BETWEEN '20220516 00:00' AND '20220522 23:59' THEN 'Semana 3'
+                                WHEN C.fecha BETWEEN '20220523 00:00' AND '20220531 23:59' THEN 'Semana 4' END
