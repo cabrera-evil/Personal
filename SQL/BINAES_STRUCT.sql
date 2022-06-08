@@ -11,7 +11,7 @@ CREATE TABLE EVENTO(
     id INT
         PRIMARY KEY NOT NULL,
     --ATRIBUTOS
-    titulo VARCHAR(50),
+    titulo VARCHAR(50) NOT NULL,
     imagen VARCHAR,
     asistentes INT,
     hora_inicio DATETIME,
@@ -26,7 +26,7 @@ GO
 CREATE TABLE OBJETIVO(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
     --FK
     id_evento INT NOT NULL
 );
@@ -46,7 +46,7 @@ CREATE TABLE AREA(
     id INT
         PRIMARY KEY NOT NULL,
     --ATRIBUTOS
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(100),
     horario DATETIME NOT NULL,
     --FK
@@ -57,7 +57,7 @@ GO
 CREATE TABLE RESPONSABLE(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50)
+    nombre VARCHAR(50) NOT NULL
 );
 GO
 
@@ -65,8 +65,9 @@ CREATE TABLE USUARIO(
     id INT 
         PRIMARY KEY NOT NULL,
     --ATRIBUTOS
-    nombre VARCHAR(50),
-    direccion VARCHAR(100),
+    nombre VARCHAR(50) NOT NULL,
+    direccion VARCHAR(100) NULL
+        DEFAULT 'Direccion no disponible',
     telefono CHAR(12) 
         NOT NULL 
         UNIQUE 
@@ -127,9 +128,9 @@ CREATE TABLE EJEMPLAR(
     id INT
         PRIMARY KEY NOT NULL,
     --ATRIBUTOS
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
     imagen VARCHAR,
-    publicacion DATE,
+    publicacion DATETIME NOT NULL,
     --FK
     id_coleccion INT NOT NULL,
     id_idioma INT NOT NULL,
@@ -140,21 +141,21 @@ GO
 CREATE TABLE IDIOMA(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50)
+    nombre VARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE FORMATO(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50)
+    nombre VARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE AUTOR(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
     --FK
     id_ejemplar INT NOT NULL
 );
@@ -163,7 +164,7 @@ GO
 CREATE TABLE LISTA_PALABRAS(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
     --FK
     id_ejemplar INT NOT NULL
 );
@@ -181,7 +182,7 @@ GO
 CREATE TABLE COLECCION(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
     --FK
     id_tipo INT NOT NULL,
     id_genero INT NOT NULL
@@ -191,12 +192,14 @@ GO
 CREATE TABLE TIPO(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50)
+    nombre VARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE GENERO(
     id INT
         PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50)
+    nombre VARCHAR(50) NOT NULL
 );
+GO
+USE master;
