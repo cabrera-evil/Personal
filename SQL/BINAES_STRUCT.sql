@@ -130,6 +130,7 @@ CREATE TABLE EJEMPLAR(
     nombre VARCHAR(50),
     imagen VARCHAR,
     publicacion DATE,
+    --FK
     id_coleccion INT NOT NULL,
     id_idioma INT NOT NULL,
     id_formato INT NOT NULL
