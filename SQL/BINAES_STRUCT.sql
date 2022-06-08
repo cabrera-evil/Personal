@@ -27,6 +27,7 @@ CREATE TABLE OBJETIVO(
     id INT
         PRIMARY KEY NOT NULL,
     nombre VARCHAR(50),
+    --FK
     id_evento INT NOT NULL
 );
 GO
