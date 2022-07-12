@@ -24,12 +24,15 @@ CREATE TABLE CELEBRATION(
     beginning_date DATETIME,
     finishing_date DATETIME,
 );
+
+DBCC CHECKIDENT(USER_, reeseed, 2);
+
 GO
 
 CREATE TABLE GOAL(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL,
+    goal_name VARCHAR(50) NOT NULL,
     --FK
     id_celebration INT NOT NULL
 );
@@ -54,8 +57,8 @@ CREATE TABLE AREA(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
     --ATRIBUTOS
-    name_ VARCHAR(50) NOT NULL,
-    description_ VARCHAR(100),
+    area_name VARCHAR(50) NOT NULL,
+    area_description VARCHAR(100),
     schedule DATETIME NOT NULL,
     --FK
     id_manager INT NOT NULL
@@ -65,7 +68,7 @@ GO
 CREATE TABLE MANAGER(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL
+    manager_name VARCHAR(50) NOT NULL
 );
 GO
 
@@ -94,21 +97,21 @@ GO
 CREATE TABLE OCCUPANCY(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50)
+    occupancy_name VARCHAR(50)
 );
 GO
 
 CREATE TABLE ROLE_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    type_ VARCHAR(50)
+    role_type VARCHAR(50)
 );
 GO
 
 CREATE TABLE INSTITUTION(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(100)
+    institution_name VARCHAR(100)
 );
 GO
 
@@ -145,7 +148,7 @@ CREATE TABLE COPY_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
     --ATRIBUTOS
-    name_ VARCHAR(50) NOT NULL,
+    copy_name VARCHAR(50) NOT NULL,
     picture NVARCHAR(50)
         DEFAULT 'No picture available',
     release_date DATETIME NOT NULL,
@@ -159,21 +162,21 @@ GO
 CREATE TABLE LANGUAGE_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL
+    language_name VARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE FORMAT_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL
+    format_name VARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE AUTHOR(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL,
+    author_name VARCHAR(50) NOT NULL,
     --FK
     id_copy INT NOT NULL
 );
@@ -191,7 +194,7 @@ GO
 CREATE TABLE LABEL_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50),
+    label_name VARCHAR(50),
     --FK
     id_copy INT NOT NULL
 );
@@ -200,7 +203,7 @@ GO
 CREATE TABLE COLLECTION_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL,
+    collection_name VARCHAR(50) NOT NULL,
     --FK
     id_type INT NOT NULL,
     id_genre INT NOT NULL
@@ -210,14 +213,14 @@ GO
 CREATE TABLE TYPE_(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL
+    type_name_ VARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE GENRE(
     id INT
         IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    name_ VARCHAR(50) NOT NULL
+    genre_name VARCHAR(50) NOT NULL
 );
 GO
 
