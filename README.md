@@ -1,12 +1,12 @@
 # Personal repository
 ### Douglas Mauricio Cabrera Pineda 
-### (cabrera-evil)
 # Programing Languages
 ### C++
 ### Java
-### C#
 ### Python
 ### Shell
+### SQL
 # Web Development
 ### HTML
 ### CSS
+### JS
